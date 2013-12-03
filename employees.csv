@@ -1,0 +1,9 @@
+first_name,last_name,role,base_salary,commission,bonus,quota
+Johnny,Smith,developer,80000,0,0,0
+Jimmy,McMahon,developer,85000,0,0,0
+Bob,Lob,commission sales person,50000,0.5,0,0
+Ricky,Bobby,commission sales person,40000,1.5,0,0
+Edna,Krabappel,designer,87000,0,0,0
+Willy,Groundskeeper,quota sales person,75000,0,5000,60000
+Clancy,Wiggum,quota sales person,80000,0,10000,80000
+Charles,Burns,owner,500000,0,1000,250000
