@@ -14,6 +14,7 @@ class Sale
       sales = row.to_hash
       @@sales_info << sales
     end
+    sales_per_person
   end
 
   def self.sales_per_person
@@ -24,6 +25,7 @@ class Sale
         @@sales_person[hash['last_name']] += hash['gross_sale_value'].to_i
       end
     end
+    @@sales_person
   end
 
   def self.total_gross_sale
@@ -31,7 +33,7 @@ class Sale
     @@sales_person.each do |key, value|
       total_sale << value.to_i
     end
-    final_amount = total_sale.inject(:+)
+    total_sale.inject(:+)
   end
 end
 

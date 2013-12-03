@@ -26,6 +26,12 @@ class Employee
     end
   end
 
+  def self.owners
+    @@all_employees.select do |employee|
+      employee.class == Owner
+    end
+  end
+
   def gross_salary
     @base_salary.to_i / 12
   end

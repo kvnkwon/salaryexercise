@@ -1,3 +1,4 @@
+require 'pry'
 class Owner < Employee
   def initialize(data = {})
     super(data)
@@ -5,13 +6,13 @@ class Owner < Employee
     @quota = data["quota"]
   end
 
-  def self.meet_quota
-    Sale.total_gross_sale >= 250000
+  def meet_quota?
+    Sale.total_gross_sale >= @quota.to_f
   end
 
-  def self.gross_salary
+  def gross_salary
     if meet_quota?
-      (@base_salary.to_i / 12) + 1000
+      (@base_salary.to_i / 12) + @bonus.to_i
     else
       @base_salary.to_i / 12
     end
