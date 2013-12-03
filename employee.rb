@@ -26,16 +26,16 @@ class Employee
     end
   end
 
-  def monthly_salary
+  def gross_salary
     @base_salary.to_i / 12
   end
 
   def tax
-    monthly_salary.to_f * 0.30
+    gross_salary.to_f * 0.30
   end
 
   def net_pay
-    monthly_salary - tax
+    gross_salary - tax
   end
 end
 

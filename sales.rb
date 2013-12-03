@@ -3,6 +3,7 @@ require 'pry'
 class Sale
 
   @@sales_info = []
+  @@sales_person = {}
   def initialize(sales = {})
     @last_name = sales['last_name']
     @amount = sales['gross_sale_value']
@@ -15,7 +16,23 @@ class Sale
     end
   end
 
-  def total_gross_sale
+  def self.sales_per_person
+    @@sales_info.each do |hash|
+      if !@@sales_person.include?(hash['last_name'])
+        @@sales_person[hash['last_name']] = hash['gross_sale_value'].to_i
+      else
+        @@sales_person[hash['last_name']] += hash['gross_sale_value'].to_i
+      end
+    end
   end
 
+  def self.total_gross_sale
+    total_sale = []
+    @@sales_person.each do |key, value|
+      total_sale << value.to_i
+    end
+    final_amount = total_sale.inject(:+)
+  end
 end
+
+

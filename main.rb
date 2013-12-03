@@ -6,3 +6,5 @@ require_relative 'sales'
 
 Employee.loadfile('employees.csv')
 Sale.read_info('sale.csv')
+puts Owner.meet_quota
+puts Owner.gross_salary
