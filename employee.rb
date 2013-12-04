@@ -3,7 +3,7 @@ require 'csv'
 
 class Employee
 
-  attr_reader :first_name, :last_name, :base_salary
+  attr_reader :first_name, :last_name, :base_salary, :role, :bonus
 
   @@all_employees = []
 
@@ -11,6 +11,7 @@ class Employee
     @first_name = data["first_name"]
     @last_name = data["last_name"]
     @base_salary = data["base_salary"]
+    @role = data["role"]
   end
 
   def self.loadfile(file_path)
@@ -65,11 +66,14 @@ class Employee
   def self.final_output
     @@all_employees.each do |employee|
       puts "***#{employee.first_name} #{employee.last_name}***"
-      puts "Gross Salary: $#{employee.gross_salary}"
-
-      puts "Net Pay: $#{employee.net_pay}"
-      puts "***"
-      binding.pry
+      puts "Gross Salary: $#{"%.2f" % employee.gross_salary}"
+      if ['commission sales person'].include?(employee.role)
+        puts "Commission: $#{"%.2f" % employee.gross_sales}"
+      elsif ['owner', 'quota sales person'].include?(employee.role)
+        puts "Bonus: $#{"%.2f" % employee.bonus}"
+      end
+      puts "Net Pay: $#{"%.2f" % employee.net_pay}"
+      puts "***\n\n"
     end
   end
 
