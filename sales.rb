@@ -25,6 +25,9 @@ class Sale
         @@sales_person[hash['last_name']] += hash['gross_sale_value'].to_i
       end
     end
+  end
+
+  def self.sale_person
     @@sales_person
   end
 

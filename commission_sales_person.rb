@@ -5,14 +5,12 @@ class CommissionSalesPerson < Employee
     @commission = data["commission"]
   end
 
-  def self.gross_sales
-    @@sales_person = Sale.sales_per_person
-    @@sales_person[@last_name] * @commission
-    binding.pry
+  def gross_sales
+    sales_person = Sale.sale_person
+    sales_person[@last_name] * @commission.to_f
   end
 
-  def gross_salary
+  def final_payment
     (@base_salary.to_i / 12) + gross_sales
   end
-
 end

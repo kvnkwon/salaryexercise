@@ -10,7 +10,7 @@ class Owner < Employee
     Sale.total_gross_sale >= @quota.to_f
   end
 
-  def gross_salary
+  def final_payment
     if meet_quota?
       (@base_salary.to_i / 12) + @bonus.to_i
     else

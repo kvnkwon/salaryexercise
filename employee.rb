@@ -3,6 +3,8 @@ require 'csv'
 
 class Employee
 
+  attr_reader :first_name, :last_name, :base_salary
+
   @@all_employees = []
 
   def initialize(data = {})
@@ -32,17 +34,45 @@ class Employee
     end
   end
 
+  def self.commission_sales
+    @@all_employees.select do |employee|
+      employee.class == CommissionSalesPerson
+    end
+  end
+
+  def self.quota_sales
+    @@all_employees.select do |employee|
+      employee.class == QuotaSalesPerson
+    end
+  end
+
   def gross_salary
     @base_salary.to_i / 12
   end
 
+  def final_payment
+    gross_salary
+  end
+
   def tax
-    gross_salary.to_f * 0.30
+    final_payment.to_f * 0.30
   end
 
   def net_pay
-    gross_salary - tax
+    final_payment - tax
   end
+
+  def self.final_output
+    @@all_employees.each do |employee|
+      puts "***#{employee.first_name} #{employee.last_name}***"
+      puts "Gross Salary: $#{employee.gross_salary}"
+
+      puts "Net Pay: $#{employee.net_pay}"
+      puts "***"
+      binding.pry
+    end
+  end
+
 end
 
 
