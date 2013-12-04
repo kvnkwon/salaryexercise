@@ -1,0 +1,27 @@
+*** User Story ***
+As an employee
+I want to know my montly income
+So I can keep track of my finance
+
+Acceptance Criteria
+*Print employee's name.
+*Print gross salary before 30% tax.
+*Print net pay.
+
+*** User Story ***
+As a quota sales person or owner
+I want to know my bonus
+So I can keep track of my finance
+
+Acceptance Criteria
+*Print my bonus.
+*Net pay should include taxed bonus and monthly salary.
+
+*** User Story ***
+As a commission sales person
+I want to know how much commision I got
+So I can keep track of my finance
+
+Acceptance Criteria
+*Print my commision.
+*Net pay should include taxed commision and monthly salary.
